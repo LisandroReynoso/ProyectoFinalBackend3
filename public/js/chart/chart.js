@@ -1,8 +1,4 @@
-import { getProducts } from "./api.js";
-import { createProduct, productosHandle } from "./product.js";
-
-
-function createChart (arr) {
+export function createChart (arr) {
     const products = arr.map(product => product.nombre)
     const stocks = arr.map(product => product.stock)
     console.log(products, stocks)
@@ -38,16 +34,3 @@ function createChart (arr) {
     const ctx = document.getElementById('myChart').getContext('2d')
     new Chart(ctx, config)
 }
-
-
-
-
-
-async function main() {
-    const result = await getProducts()
-    productosHandle(result.payload)
-    createProduct()
-    createChart(result.payload)
-}
-
-main()
