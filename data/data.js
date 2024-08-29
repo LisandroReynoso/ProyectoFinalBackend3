@@ -47,6 +47,13 @@ export const data = [
       "role": 'Usuario',
       "email": 'luis.fernandez@gmail.com',
       "interests": [ 'música', 'videojuegos', 'gastronomía' ]
+    },
+    {
+        "username": "lisandroreynoso",
+        "password": "lisi2024",
+        "role": "alumno",
+        "email": "lisandro@mail.com",
+        "interests": "futbol"
     }
   ];
   

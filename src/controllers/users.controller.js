@@ -8,6 +8,7 @@ export const getAllUsers = (request, response) => {
     console.log(data)
     try {
         if(data.length > 0) {
+            
             const payload = {
                 users: data,
                 status: 200,
@@ -16,8 +17,10 @@ export const getAllUsers = (request, response) => {
                 url: request.originalUrl 
             }
             return response.json(payload)
+            
         }
         return response.status(404).send('No hay usuarios')
+        
     } catch (error) {
         return response.status(500).send('Error en el servidor')
     }
@@ -36,8 +39,8 @@ export const createUser = (request, response) => {
             body.password = crearHash(body.password)
             data.push(body)
             console.log(body)
-            delete body.password
-            delete body.email
+            //delete body.password
+            //delete body.email
             const result = {
                 status: 201,
                 message: 'usuario creado correctamente',
@@ -61,10 +64,10 @@ export const login = (request, response) => {
         if(user){
             const verify = verifyPassword(body.password, user.password) 
             if (verify){
-                return response.json({succes: 'Logueo Exitoso'})
+                return response.json({success: 'Logueo Exitoso'})
             }
             else  {
-                return response.json({succes: 'Contraseña Incorrecta'})
+                return response.json({success: 'Contraseña Incorrecta'})
             }
         }
             
@@ -72,7 +75,7 @@ export const login = (request, response) => {
         } 
         
         
-        catch (error) {
+    catch (error) {
          return response.status(500).send('Error en el servidor') 
     }
     

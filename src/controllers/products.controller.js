@@ -32,9 +32,13 @@ export const getProductController = async (require, response) => {
             payload: products
         })
     } catch (error) {
+        console.log(error)
         return response.status(500).json({
             status: 500,
             message: error.message
+            
+            
         })
+        
     }
 }
